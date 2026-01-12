@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>THE 10 MILLION PIXELS PLUS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+</head>
+<body>
+
+<header class="classic-header">
+    <div class="purchase-top-bar">
+        <div class="payment-info">
+            <span class="pay-label">DIRECT PAYMENT:</span>
+            <button class="pay-btn" onclick="copy('912221034')">BINANCE UID: 912221034</button>
+            <button class="pay-btn" onclick="copy('TTapBkTqrDnzHbWzek6wSBUTcJKFmR8Ws6')">USDT (TRC20)</button>
+        </div>
+        <div class="order-link-area">
+            <a href="order.html" class="highlight-buy-btn">BUY PIXELS (MIN $10)</a>
+        </div>
+    </div>
+
+    <div class="logo-row">
+        <h1 class="site-name">THE 10 MILLION PIXELS PLUS</h1>
+        <div class="stats-area">
+            <span id="pixel-count-display">0</span> / 10,000,000 Pixels Sold
+        </div>
+    </div>
+    
+    <nav class="classic-nav">
+        <div class="nav-links">
+            <a href="index.html">Homepage</a> | 
+            <a href="order.html">Order Page</a> | 
+            <a href="https://wa.me/8801576940717">Support</a>
+        </div>
+    </nav>
+</header>
+
+<main class="content-frame">
+    <div id="pixel-viewport">
+        <div id="sold-out-overlay">SOLD OUT!</div>
+        
+        <div id="canvas-mover">
+            <canvas id="mainCanvas"></canvas>
+        </div>
+    </div>
+</main>
+
+<footer class="classic-footer">
+    <p>THE 10 MILLION PIXELS PLUS HOMEPAGE © 2026 Kawsar Tew. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+    function copy(t){ navigator.clipboard.writeText(t).then(()=>alert("Copied: "+t)); }
+</script>
+</body>
+</html>
