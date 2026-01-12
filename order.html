@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buy Pixels - THE 10 MILLION PIXELS PLUS</title>
+    <style>
+        body { background: #E0E0E0; font-family: Arial; text-align: center; padding-top: 50px; }
+        .box { background: #fff; padding: 40px; display: inline-block; border: 2px solid #D4AF37; width: 400px; }
+        input { display: block; width: 100%; padding: 12px; margin: 15px 0; border: 1px solid #ccc; box-sizing: border-box; }
+        button { width: 100%; padding: 15px; background: #CC0000; color: #fff; border: none; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2 style="color:#D4AF37">ORDER PIXELS</h2>
+        <p>Price: $1 per Pixel (Min: $10)</p>
+        <input type="number" id="amt" placeholder="Enter USD Amount (Min 10)" min="10">
+        <input type="text" id="comp" placeholder="Your Business Name">
+        <input type="text" id="link" placeholder="Your Website URL">
+        <button onclick="order()">SUBMIT ORDER</button>
+        <br><a href="index.html" style="text-decoration:none; color: #999;">Back to Home</a>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+    <script>
+        firebase.initializeApp({databaseURL: "https://m-legacy-5cf2b-default-rtdb.firebaseio.com/"});
+        function order(){
+            const a = document.getElementById('amt').value;
+            if(a < 10) return alert("Minimum $10!");
+            firebase.database().ref('pending_orders').push({
+                usdAmount: a,
+                pixelCount: a,
+                name: document.getElementById('comp').value,
+                url: document.getElementById('link').value
+            }).then(()=> { alert("Order Sent!"); window.location.href="index.html"; });
+        }
+    </script>
+</body>
+</html>
